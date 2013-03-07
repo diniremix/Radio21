@@ -1,0 +1,6 @@
+*.exe
+*.pdb
+*.cache
+*.db
+Radio21/[Bb]in/*
+Radio21/[Oo]bj/*

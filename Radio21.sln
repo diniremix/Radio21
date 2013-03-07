@@ -1,0 +1,18 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+# SharpDevelop 4.2.2.8818
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Radio21", "Radio21\Radio21.csproj", "{A1A417CF-55B2-49AD-8565-F2A6031003F0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A1A417CF-55B2-49AD-8565-F2A6031003F0}.Debug|x86.Build.0 = Debug|x86
+		{A1A417CF-55B2-49AD-8565-F2A6031003F0}.Debug|x86.ActiveCfg = Debug|x86
+		{A1A417CF-55B2-49AD-8565-F2A6031003F0}.Release|x86.Build.0 = Release|x86
+		{A1A417CF-55B2-49AD-8565-F2A6031003F0}.Release|x86.ActiveCfg = Release|x86
+	EndGlobalSection
+EndGlobal
