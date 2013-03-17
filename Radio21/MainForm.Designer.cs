@@ -39,6 +39,8 @@ namespace Radio21
 			this.btnabrir = new System.Windows.Forms.Button();
 			this.textBox1 = new System.Windows.Forms.TextBox();
 			this.listBox1 = new System.Windows.Forms.ListBox();
+			this.DownloadProgress = new System.Windows.Forms.ProgressBar();
+			this.lbmsg = new System.Windows.Forms.Label();
 			this.SuspendLayout();
 			// 
 			// btnabrir
@@ -47,7 +49,7 @@ namespace Radio21
 			this.btnabrir.Name = "btnabrir";
 			this.btnabrir.Size = new System.Drawing.Size(75, 23);
 			this.btnabrir.TabIndex = 0;
-			this.btnabrir.Text = "button1";
+			this.btnabrir.Text = "&Obtener lista";
 			this.btnabrir.UseVisualStyleBackColor = true;
 			this.btnabrir.Click += new System.EventHandler(this.BtnabrirClick);
 			// 
@@ -61,17 +63,34 @@ namespace Radio21
 			// listBox1
 			// 
 			this.listBox1.FormattingEnabled = true;
-			this.listBox1.Location = new System.Drawing.Point(12, 94);
+			this.listBox1.Location = new System.Drawing.Point(12, 120);
 			this.listBox1.Name = "listBox1";
-			this.listBox1.Size = new System.Drawing.Size(426, 277);
+			this.listBox1.Size = new System.Drawing.Size(426, 251);
 			this.listBox1.TabIndex = 3;
 			this.listBox1.Click += new System.EventHandler(this.ListBox1Click);
+			// 
+			// DownloadProgress
+			// 
+			this.DownloadProgress.Location = new System.Drawing.Point(12, 81);
+			this.DownloadProgress.Name = "DownloadProgress";
+			this.DownloadProgress.Size = new System.Drawing.Size(426, 23);
+			this.DownloadProgress.TabIndex = 4;
+			// 
+			// lbmsg
+			// 
+			this.lbmsg.Location = new System.Drawing.Point(93, 52);
+			this.lbmsg.Name = "lbmsg";
+			this.lbmsg.Size = new System.Drawing.Size(167, 20);
+			this.lbmsg.TabIndex = 5;
+			this.lbmsg.Text = "En espera...";
 			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(511, 387);
+			this.Controls.Add(this.lbmsg);
+			this.Controls.Add(this.DownloadProgress);
 			this.Controls.Add(this.listBox1);
 			this.Controls.Add(this.textBox1);
 			this.Controls.Add(this.btnabrir);
@@ -80,6 +99,8 @@ namespace Radio21
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.Label lbmsg;
+		private System.Windows.Forms.ProgressBar DownloadProgress;
 		private System.Windows.Forms.ListBox listBox1;
 		private System.Windows.Forms.TextBox textBox1;
 		private System.Windows.Forms.Button btnabrir;
