@@ -36,8 +36,7 @@ namespace Radio21
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.btnabrir = new System.Windows.Forms.Button();
-			this.textBox1 = new System.Windows.Forms.TextBox();
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
 			this.listciudad = new System.Windows.Forms.ListBox();
 			this.DownloadProgress = new System.Windows.Forms.ProgressBar();
 			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -49,6 +48,9 @@ namespace Radio21
 			this.formatoxspfToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
 			this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.opcionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.eliminarCachéToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.preferenciasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.acercadeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.forkMeOnGitHubToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -56,50 +58,38 @@ namespace Radio21
 			this.formatoPlcToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.formatoXspfToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.cbociudades = new System.Windows.Forms.ComboBox();
+			this.label1 = new System.Windows.Forms.Label();
+			this.groupBox1 = new System.Windows.Forms.GroupBox();
+			this.label2 = new System.Windows.Forms.Label();
 			this.menuStrip1.SuspendLayout();
+			this.groupBox1.SuspendLayout();
 			this.SuspendLayout();
-			// 
-			// btnabrir
-			// 
-			this.btnabrir.Location = new System.Drawing.Point(12, 52);
-			this.btnabrir.Name = "btnabrir";
-			this.btnabrir.Size = new System.Drawing.Size(75, 23);
-			this.btnabrir.TabIndex = 0;
-			this.btnabrir.Text = "&Obtener lista";
-			this.btnabrir.UseVisualStyleBackColor = true;
-			this.btnabrir.Click += new System.EventHandler(this.BtnabrirClick);
-			// 
-			// textBox1
-			// 
-			this.textBox1.Location = new System.Drawing.Point(12, 26);
-			this.textBox1.Name = "textBox1";
-			this.textBox1.Size = new System.Drawing.Size(493, 20);
-			this.textBox1.TabIndex = 1;
 			// 
 			// listciudad
 			// 
 			this.listciudad.FormattingEnabled = true;
-			this.listciudad.Location = new System.Drawing.Point(0, 110);
+			this.listciudad.Location = new System.Drawing.Point(6, 57);
 			this.listciudad.Name = "listciudad";
-			this.listciudad.Size = new System.Drawing.Size(487, 251);
+			this.listciudad.Size = new System.Drawing.Size(560, 316);
 			this.listciudad.TabIndex = 3;
 			this.listciudad.Click += new System.EventHandler(this.ListciudadesClick);
 			// 
 			// DownloadProgress
 			// 
-			this.DownloadProgress.Location = new System.Drawing.Point(12, 81);
+			this.DownloadProgress.Location = new System.Drawing.Point(328, 24);
 			this.DownloadProgress.Name = "DownloadProgress";
-			this.DownloadProgress.Size = new System.Drawing.Size(487, 23);
+			this.DownloadProgress.Size = new System.Drawing.Size(238, 23);
 			this.DownloadProgress.TabIndex = 4;
 			// 
 			// menuStrip1
 			// 
 			this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
 									this.archivoToolStripMenuItem,
+									this.opcionesToolStripMenuItem,
 									this.ayudaToolStripMenuItem});
 			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip1.Name = "menuStrip1";
-			this.menuStrip1.Size = new System.Drawing.Size(511, 24);
+			this.menuStrip1.Size = new System.Drawing.Size(592, 24);
 			this.menuStrip1.TabIndex = 6;
 			this.menuStrip1.Text = "menuStrip1";
 			// 
@@ -116,8 +106,10 @@ namespace Radio21
 			// 
 			// actualizarlistaToolStripMenuItem
 			// 
+			this.actualizarlistaToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("actualizarlistaToolStripMenuItem.Image")));
 			this.actualizarlistaToolStripMenuItem.Name = "actualizarlistaToolStripMenuItem";
-			this.actualizarlistaToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+			this.actualizarlistaToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F5;
+			this.actualizarlistaToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
 			this.actualizarlistaToolStripMenuItem.Text = "Actualizar &listado";
 			this.actualizarlistaToolStripMenuItem.Click += new System.EventHandler(this.ActualizarlistaToolStripMenuItemClick);
 			// 
@@ -127,42 +119,74 @@ namespace Radio21
 									this.formatoM3uToolStripMenuItem1,
 									this.formatoPlsToolStripMenuItem,
 									this.formatoxspfToolStripMenuItem1});
+			this.exportarListaToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("exportarListaToolStripMenuItem.Image")));
 			this.exportarListaToolStripMenuItem.Name = "exportarListaToolStripMenuItem";
-			this.exportarListaToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+			this.exportarListaToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
 			this.exportarListaToolStripMenuItem.Text = "&Exportar a";
 			// 
 			// formatoM3uToolStripMenuItem1
 			// 
+			this.formatoM3uToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("formatoM3uToolStripMenuItem1.Image")));
 			this.formatoM3uToolStripMenuItem1.Name = "formatoM3uToolStripMenuItem1";
-			this.formatoM3uToolStripMenuItem1.Size = new System.Drawing.Size(144, 22);
+			this.formatoM3uToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
 			this.formatoM3uToolStripMenuItem1.Text = "formato &m3u";
 			this.formatoM3uToolStripMenuItem1.Click += new System.EventHandler(this.FormatoM3uToolStripMenuItem1Click);
 			// 
 			// formatoPlsToolStripMenuItem
 			// 
+			this.formatoPlsToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("formatoPlsToolStripMenuItem.Image")));
 			this.formatoPlsToolStripMenuItem.Name = "formatoPlsToolStripMenuItem";
-			this.formatoPlsToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+			this.formatoPlsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.formatoPlsToolStripMenuItem.Text = "formato &pls";
 			this.formatoPlsToolStripMenuItem.Click += new System.EventHandler(this.FormatoPlsToolStripMenuItemClick);
 			// 
 			// formatoxspfToolStripMenuItem1
 			// 
+			this.formatoxspfToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("formatoxspfToolStripMenuItem1.Image")));
 			this.formatoxspfToolStripMenuItem1.Name = "formatoxspfToolStripMenuItem1";
-			this.formatoxspfToolStripMenuItem1.Size = new System.Drawing.Size(144, 22);
+			this.formatoxspfToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
 			this.formatoxspfToolStripMenuItem1.Text = "formato &xspf";
 			this.formatoxspfToolStripMenuItem1.Click += new System.EventHandler(this.FormatoxspfToolStripMenuItem1Click);
 			// 
 			// toolStripMenuItem1
 			// 
 			this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-			this.toolStripMenuItem1.Size = new System.Drawing.Size(161, 6);
+			this.toolStripMenuItem1.Size = new System.Drawing.Size(180, 6);
 			// 
 			// salirToolStripMenuItem
 			// 
+			this.salirToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("salirToolStripMenuItem.Image")));
 			this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-			this.salirToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+			this.salirToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
+			this.salirToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
 			this.salirToolStripMenuItem.Text = "&Salir";
 			this.salirToolStripMenuItem.Click += new System.EventHandler(this.SalirToolStripMenuItemClick);
+			// 
+			// opcionesToolStripMenuItem
+			// 
+			this.opcionesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+									this.eliminarCachéToolStripMenuItem,
+									this.preferenciasToolStripMenuItem});
+			this.opcionesToolStripMenuItem.Name = "opcionesToolStripMenuItem";
+			this.opcionesToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
+			this.opcionesToolStripMenuItem.Text = "&Opciones";
+			// 
+			// eliminarCachéToolStripMenuItem
+			// 
+			this.eliminarCachéToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("eliminarCachéToolStripMenuItem.Image")));
+			this.eliminarCachéToolStripMenuItem.Name = "eliminarCachéToolStripMenuItem";
+			this.eliminarCachéToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F7;
+			this.eliminarCachéToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+			this.eliminarCachéToolStripMenuItem.Text = "&Eliminar caché";
+			this.eliminarCachéToolStripMenuItem.Click += new System.EventHandler(this.EliminarCachéToolStripMenuItemClick);
+			// 
+			// preferenciasToolStripMenuItem
+			// 
+			this.preferenciasToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("preferenciasToolStripMenuItem.Image")));
+			this.preferenciasToolStripMenuItem.Name = "preferenciasToolStripMenuItem";
+			this.preferenciasToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F9;
+			this.preferenciasToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+			this.preferenciasToolStripMenuItem.Text = "&Preferencias";
 			// 
 			// ayudaToolStripMenuItem
 			// 
@@ -175,13 +199,16 @@ namespace Radio21
 			// 
 			// acercadeToolStripMenuItem
 			// 
+			this.acercadeToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("acercadeToolStripMenuItem.Image")));
 			this.acercadeToolStripMenuItem.Name = "acercadeToolStripMenuItem";
+			this.acercadeToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
 			this.acercadeToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
 			this.acercadeToolStripMenuItem.Text = "Acerca &de";
 			this.acercadeToolStripMenuItem.Click += new System.EventHandler(this.AcercadeToolStripMenuItemClick);
 			// 
 			// forkMeOnGitHubToolStripMenuItem
 			// 
+			this.forkMeOnGitHubToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("forkMeOnGitHubToolStripMenuItem.Image")));
 			this.forkMeOnGitHubToolStripMenuItem.Name = "forkMeOnGitHubToolStripMenuItem";
 			this.forkMeOnGitHubToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
 			this.forkMeOnGitHubToolStripMenuItem.Text = "&Fork me on GitHub";
@@ -220,31 +247,65 @@ namespace Radio21
 									"Sincelejo",
 									"Valledupar",
 									"Cali"});
-			this.cbociudades.Location = new System.Drawing.Point(242, 49);
+			this.cbociudades.Location = new System.Drawing.Point(128, 26);
 			this.cbociudades.Name = "cbociudades";
 			this.cbociudades.Size = new System.Drawing.Size(121, 21);
 			this.cbociudades.TabIndex = 7;
+			// 
+			// label1
+			// 
+			this.label1.Location = new System.Drawing.Point(6, 29);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(116, 21);
+			this.label1.TabIndex = 8;
+			this.label1.Text = "Seleccionar Ciudad: ";
+			// 
+			// groupBox1
+			// 
+			this.groupBox1.Controls.Add(this.label2);
+			this.groupBox1.Controls.Add(this.cbociudades);
+			this.groupBox1.Controls.Add(this.DownloadProgress);
+			this.groupBox1.Controls.Add(this.label1);
+			this.groupBox1.Controls.Add(this.listciudad);
+			this.groupBox1.Location = new System.Drawing.Point(12, 36);
+			this.groupBox1.Name = "groupBox1";
+			this.groupBox1.Size = new System.Drawing.Size(572, 380);
+			this.groupBox1.TabIndex = 9;
+			this.groupBox1.TabStop = false;
+			this.groupBox1.Text = "Lista de ciudades";
+			// 
+			// label2
+			// 
+			this.label2.Location = new System.Drawing.Point(265, 29);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(57, 18);
+			this.label2.TabIndex = 9;
+			this.label2.Text = "progreso:";
 			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(511, 387);
-			this.Controls.Add(this.cbociudades);
-			this.Controls.Add(this.DownloadProgress);
-			this.Controls.Add(this.listciudad);
-			this.Controls.Add(this.textBox1);
-			this.Controls.Add(this.btnabrir);
+			this.ClientSize = new System.Drawing.Size(592, 421);
+			this.Controls.Add(this.groupBox1);
 			this.Controls.Add(this.menuStrip1);
 			this.MainMenuStrip = this.menuStrip1;
+			this.MaximizeBox = false;
 			this.Name = "MainForm";
 			this.Text = "Radio21";
 			this.Load += new System.EventHandler(this.MainFormLoad);
 			this.menuStrip1.ResumeLayout(false);
 			this.menuStrip1.PerformLayout();
+			this.groupBox1.ResumeLayout(false);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.ToolStripMenuItem preferenciasToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem eliminarCachéToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem opcionesToolStripMenuItem;
+		private System.Windows.Forms.Label label2;
+		private System.Windows.Forms.GroupBox groupBox1;
+		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.ToolStripMenuItem formatoxspfToolStripMenuItem1;
 		private System.Windows.Forms.ToolStripMenuItem formatoPlsToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem formatoM3uToolStripMenuItem1;
@@ -263,7 +324,5 @@ namespace Radio21
 		private System.Windows.Forms.MenuStrip menuStrip1;
 		private System.Windows.Forms.ProgressBar DownloadProgress;
 		private System.Windows.Forms.ListBox listciudad;
-		private System.Windows.Forms.TextBox textBox1;
-		private System.Windows.Forms.Button btnabrir;		
 	}
 }

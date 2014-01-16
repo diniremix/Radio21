@@ -40,8 +40,7 @@ namespace Radio21
 		//			
 		void MainFormLoad(object sender, EventArgs e)
 		{
-			cbociudades.SelectedIndex=0;
-			setMessage("En espera");
+			cbociudades.SelectedIndex=0;			
 		}
 		
 		//
@@ -70,12 +69,12 @@ namespace Radio21
 		
 		void SalirToolStripMenuItemClick(object sender, EventArgs e)
 		{
-			Application.Exit();		
+			Application.Exit();
 		}
 		
 		void AcercadeToolStripMenuItemClick(object sender, EventArgs e)
 		{
-			MessageBox.Show("Buscador de enlaces de archivos MP3 en URL's","Radio21",MessageBoxButtons.OK,MessageBoxIcon.Information);
+			MessageBox.Show("Buscador de enlaces de archivos MP3 en URL's","Acerca de Radio21",MessageBoxButtons.OK,MessageBoxIcon.Information);
 		}
 		
 		void ForkMeOnGitHubToolStripMenuItemClick(object sender, EventArgs e)
@@ -94,7 +93,6 @@ namespace Radio21
 		private void ListciudadesClick(object sender, EventArgs e)
 		{
 			if(listciudad.Items.Count>0){
-				textBox1.Text= listciudad.SelectedItem.ToString();
 				setMessage(listciudad.SelectedItem.ToString());
 			}else{
 				setMessage("nada que mostrar");
@@ -153,9 +151,10 @@ namespace Radio21
 					urlStreamFile=s.Replace("<param name=\"flashvars\" value=\"mp3=../21unicas/mp3/","http://www.radiotiempo.com.co/21unicas/mp3/");
 					urlStreamFile=urlStreamFile.Replace("&amp;showtime=1\" />","");
 					urlStreamFile=urlStreamFile.Trim();
-					listciudad.Items.Add(urlStreamFile);
+					listciudad.Items.Add(urlStreamFile.ToLower());
 				}
 			}
+			setMessage("completado");
 			// Cerrar el fichero
 			sr.Close();
 			//guardar();
@@ -223,18 +222,44 @@ namespace Radio21
 
 		private void checkExists(){
 		if ( System.IO.File.Exists( ciudad ) == true ){
-				MessageBox.Show("Lista de reproduccion exportada satisfactoriamente","Radio21",MessageBoxButtons.OK,MessageBoxIcon.Information);
+				if(DialogResult.Yes== MessageBox.Show("Lista de reproduccion exportada satisfactoriamente, ¿Desea escucharla ahora?","Radio21",MessageBoxButtons.YesNo,MessageBoxIcon.Information)){
+					System.Diagnostics.Process.Start(ciudad);
+				}
 			}else{
 				MessageBox.Show("Ocurrio un error al exportar la lista de reproduccion","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
 			}
 		}
 		
+		private void clearCache(){
+			if(DialogResult.Yes== MessageBox.Show("Esto eliminará las listas de reproduccion almacenadas en el directorio de la aplicación, y la listas de canciones cargadas recientemente.\n"+
+			                                      "¿Desea continuar?","Radio21",MessageBoxButtons.YesNo,MessageBoxIcon.Warning)){
+				listciudad.Items.Clear();
+				string path=System.IO.Directory.GetCurrentDirectory();							
+				DirectoryInfo folder = new DirectoryInfo(path);
+	            string file_ext;
+	            setMessage("limpiando cache, espere...");
+	            //obtengo los ficheros contenidos en la ruta de la app
+	            foreach (FileInfo file in folder.GetFiles()){
+		            //obtengo las extensiones de archivos necesarias                        
+		            file_ext = Path.GetExtension(file.Name).ToLower();
+		            if ((file_ext == ".html") ||(file_ext == ".pls")||(file_ext == ".xspf")|| (file_ext == ".m3u")){                                        
+		                    //eliminar los archivos
+		                    File.Delete(file.FullName);
+		            }
+	            }
+			}			
+	        setMessage("limpieza terminada.");
+		}
+		
 		private void setMessage(string msg){
 			if(string.IsNullOrEmpty(msg)){
 				this.Text="Radio21::En espera";
-			}else{
-				this.Text="Radio21::"+msg;
 			}			
+		}
+		
+		void EliminarCachéToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			clearCache();
 		}
 	}
 }
