@@ -13,6 +13,8 @@ Clonar este repositorio y alojarlo en una carpeta conveniente
 
 	git clone git://github.com/diniremix/Radio21.git
 ### Lista de cambios ###
+* Gracias a [Frankity](http://frankity.info/) por la lista de repruduccion para el streaming. [Ver por aqui](https://gist.github.com/diniremix/6f50d0ce1ab35d4afad6)
+* Correccion de errores
 * Permite limpiar la cache( archivos descargados, listas de reproduccion antiguas)
 * Interfaz mas limpia (agregados varios atajos de teclado)
 * Pregunta si desea escuchar la lista de resproduccion despues de exportar

@@ -128,7 +128,7 @@ namespace Radio21
 			// 
 			this.formatoM3uToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("formatoM3uToolStripMenuItem1.Image")));
 			this.formatoM3uToolStripMenuItem1.Name = "formatoM3uToolStripMenuItem1";
-			this.formatoM3uToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+			this.formatoM3uToolStripMenuItem1.Size = new System.Drawing.Size(144, 22);
 			this.formatoM3uToolStripMenuItem1.Text = "formato &m3u";
 			this.formatoM3uToolStripMenuItem1.Click += new System.EventHandler(this.FormatoM3uToolStripMenuItem1Click);
 			// 
@@ -136,7 +136,7 @@ namespace Radio21
 			// 
 			this.formatoPlsToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("formatoPlsToolStripMenuItem.Image")));
 			this.formatoPlsToolStripMenuItem.Name = "formatoPlsToolStripMenuItem";
-			this.formatoPlsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.formatoPlsToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
 			this.formatoPlsToolStripMenuItem.Text = "formato &pls";
 			this.formatoPlsToolStripMenuItem.Click += new System.EventHandler(this.FormatoPlsToolStripMenuItemClick);
 			// 
@@ -144,7 +144,7 @@ namespace Radio21
 			// 
 			this.formatoxspfToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("formatoxspfToolStripMenuItem1.Image")));
 			this.formatoxspfToolStripMenuItem1.Name = "formatoxspfToolStripMenuItem1";
-			this.formatoxspfToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+			this.formatoxspfToolStripMenuItem1.Size = new System.Drawing.Size(144, 22);
 			this.formatoxspfToolStripMenuItem1.Text = "formato &xspf";
 			this.formatoxspfToolStripMenuItem1.Click += new System.EventHandler(this.FormatoxspfToolStripMenuItem1Click);
 			// 

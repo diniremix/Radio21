@@ -2,5 +2,10 @@
 *.pdb
 *.cache
 *.db
+*.html
+*.m3u
+*.pls
+*.xspf
+*.mp3
 Radio21/[Bb]in/*
 Radio21/[Oo]bj/*

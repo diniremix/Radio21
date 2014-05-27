@@ -89,7 +89,7 @@ namespace Radio21
 		void BtnabrirClick(object sender, EventArgs e){
 			descargar();			
 		}
-		
+				
 		private void ListciudadesClick(object sender, EventArgs e)
 		{
 			if(listciudad.Items.Count>0){
@@ -135,15 +135,11 @@ namespace Radio21
 		
 		private void leerArchivo(){
 			System.IO.StreamReader sr =new System.IO.StreamReader(ciudad,System.Text.Encoding.Default,true);
-			string urlStreamFile="";
-			// Leer el contenido mientras no se llegue al final
+			string urlStreamFile="";			
 			listciudad.Items.Clear();
 			setMessage("Organizando lista...");
 			while (sr.Peek() != -1){
-				// Leer una líena del fichero
 				string s = sr.ReadLine();
-				// Si no está vacía, añadirla al control
-				// Si está vacía, continuar el bucle
 				if (String.IsNullOrEmpty(s)){
 					continue;
 				}
@@ -151,13 +147,11 @@ namespace Radio21
 					urlStreamFile=s.Replace("<param name=\"flashvars\" value=\"mp3=../21unicas/mp3/","http://www.radiotiempo.com.co/21unicas/mp3/");
 					urlStreamFile=urlStreamFile.Replace("&amp;showtime=1\" />","");
 					urlStreamFile=urlStreamFile.Trim();
-					listciudad.Items.Add(urlStreamFile.ToLower());
+					listciudad.Items.Add(urlStreamFile);
 				}
 			}
 			setMessage("completado");
-			// Cerrar el fichero
 			sr.Close();
-			//guardar();
 		}
 		
 		private void guardar(string export){
@@ -195,9 +189,11 @@ namespace Radio21
 			System.IO.StreamWriter fichero = new System.IO.StreamWriter(ciudad);
 			fichero.Write("[playlist]"+"\n");
 			fichero.Write("NumberOfEntries="+total.ToString()+"\n");
+			string arch="";
 			for(int i=0;i<total;i++){
-				fichero.Write("File"+i.ToString()+"="+listciudad.Items[i].ToString()+"\n");	
-				fichero.Write("Title"+i.ToString()+"="+listciudad.Items[i].ToString()+"\n");				
+				arch=listciudad.Items[i].ToString();
+				fichero.Write("Title"+i.ToString()+"="+arch+"\n");	
+				fichero.Write("File"+i.ToString()+"="+arch+"\n");	
 			}
 			fichero.Close();
 			setMessage("Lista exportada a PLS...");			
@@ -238,12 +234,9 @@ namespace Radio21
 				DirectoryInfo folder = new DirectoryInfo(path);
 	            string file_ext;
 	            setMessage("limpiando cache, espere...");
-	            //obtengo los ficheros contenidos en la ruta de la app
 	            foreach (FileInfo file in folder.GetFiles()){
-		            //obtengo las extensiones de archivos necesarias                        
 		            file_ext = Path.GetExtension(file.Name).ToLower();
 		            if ((file_ext == ".html") ||(file_ext == ".pls")||(file_ext == ".xspf")|| (file_ext == ".m3u")){                                        
-		                    //eliminar los archivos
 		                    File.Delete(file.FullName);
 		            }
 	            }
@@ -255,11 +248,10 @@ namespace Radio21
 			if(string.IsNullOrEmpty(msg)){
 				this.Text="Radio21::En espera";
 			}			
-		}
+		}			
 		
-		void EliminarCachéToolStripMenuItemClick(object sender, EventArgs e)
-		{
-			clearCache();
+		void EliminarCachéToolStripMenuItemClick(object sender, EventArgs e){
+			clearCache();	
 		}
 	}
 }
